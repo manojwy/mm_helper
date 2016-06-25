@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
+		application.registerUserNotificationSettings(
+			UIUserNotificationSettings(
+				forTypes: [.Alert, .Badge, .Sound],
+				categories:nil))
+
 		return true
 	}
 
@@ -106,6 +111,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	        }
 	    }
 	}
+}
 
+func P(string: String, filename: String = #file, lineNo: Int = #line) {
+	let name = NSFileManager.defaultManager().displayNameAtPath(filename)
+	NSLog("[\(name):\(lineNo)]: \(string)");
 }
 

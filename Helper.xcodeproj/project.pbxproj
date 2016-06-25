@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF62E4C71D1E872700AABEA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62E4C61D1E872700AABEA9 /* LocationManager.swift */; };
 		AFE03F2F1D1D51DA00F089FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE03F2E1D1D51DA00F089FB /* AppDelegate.swift */; };
 		AFE03F311D1D51DA00F089FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE03F301D1D51DA00F089FB /* ViewController.swift */; };
 		AFE03F341D1D51DA00F089FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE03F321D1D51DA00F089FB /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF62E4C61D1E872700AABEA9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		AFE03F2B1D1D51DA00F089FB /* Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Helper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE03F2E1D1D51DA00F089FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE03F301D1D51DA00F089FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,8 +117,8 @@
 		AFE03F2D1D1D51DA00F089FB /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				AFE03F611D1D749700F089FB /* icon */,
 				AFE03F2E1D1D51DA00F089FB /* AppDelegate.swift */,
+				AF62E4C61D1E872700AABEA9 /* LocationManager.swift */,
 				AFE03F301D1D51DA00F089FB /* ViewController.swift */,
 				AFE03F321D1D51DA00F089FB /* Main.storyboard */,
 				AFE03F5F1D1D581A00F089FB /* AddScreenViewController.swift */,
@@ -124,6 +126,7 @@
 				AFE03F3A1D1D51DA00F089FB /* LaunchScreen.storyboard */,
 				AFE03F3D1D1D51DA00F089FB /* Info.plist */,
 				AFE03F351D1D51DA00F089FB /* Helper.xcdatamodeld */,
+				AFE03F611D1D749700F089FB /* icon */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			files = (
 				AFE03F601D1D581A00F089FB /* AddScreenViewController.swift in Sources */,
 				AFE03F371D1D51DA00F089FB /* Helper.xcdatamodeld in Sources */,
+				AF62E4C71D1E872700AABEA9 /* LocationManager.swift in Sources */,
 				AFE03F311D1D51DA00F089FB /* ViewController.swift in Sources */,
 				AFE03F2F1D1D51DA00F089FB /* AppDelegate.swift in Sources */,
 			);

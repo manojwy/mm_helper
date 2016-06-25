@@ -9,20 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+	var locManager:LocationManager!
 	override func viewDidLoad() {
+
 		super.viewDidLoad()
+
 		// Do any additional setup after loading the view, typically from a nib.
 		self.navigationItem.title = NSBundle.mainBundle().infoDictionary!["CFBundleName"] as? String
 
+		self.locManager = LocationManager()
 	}
-
-
-	
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
+	}
+
+	deinit {
+		P("ViewController:deinit")
 	}
 
 
