@@ -24,6 +24,8 @@
 		AFE03F6D1D1D74AE00F089FB /* 167.png in Resources */ = {isa = PBXBuildFile; fileRef = AFE03F661D1D74AE00F089FB /* 167.png */; };
 		AFE03F6E1D1D74AE00F089FB /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = AFE03F671D1D74AE00F089FB /* 180.png */; };
 		AFE03F6F1D1D74AE00F089FB /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = AFE03F681D1D74AE00F089FB /* 1024.png */; };
+		AFE5717C1D1EC01700BD1EBC /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5717B1D1EC01700BD1EBC /* Reachability.swift */; };
+		AFE5717E1D1EC2A800BD1EBC /* WifiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE5717D1D1EC2A800BD1EBC /* WifiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		AFE03F661D1D74AE00F089FB /* 167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 167.png; sourceTree = "<group>"; };
 		AFE03F671D1D74AE00F089FB /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180.png; sourceTree = "<group>"; };
 		AFE03F681D1D74AE00F089FB /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
+		AFE5717B1D1EC01700BD1EBC /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		AFE5717D1D1EC2A800BD1EBC /* WifiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WifiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 			children = (
 				AFE03F2E1D1D51DA00F089FB /* AppDelegate.swift */,
 				AF62E4C61D1E872700AABEA9 /* LocationManager.swift */,
+				AFE5717D1D1EC2A800BD1EBC /* WifiManager.swift */,
+				AFE5717B1D1EC01700BD1EBC /* Reachability.swift */,
 				AFE03F301D1D51DA00F089FB /* ViewController.swift */,
 				AFE03F321D1D51DA00F089FB /* Main.storyboard */,
 				AFE03F5F1D1D581A00F089FB /* AddScreenViewController.swift */,
@@ -303,7 +309,9 @@
 			files = (
 				AFE03F601D1D581A00F089FB /* AddScreenViewController.swift in Sources */,
 				AFE03F371D1D51DA00F089FB /* Helper.xcdatamodeld in Sources */,
+				AFE5717C1D1EC01700BD1EBC /* Reachability.swift in Sources */,
 				AF62E4C71D1E872700AABEA9 /* LocationManager.swift in Sources */,
+				AFE5717E1D1EC2A800BD1EBC /* WifiManager.swift in Sources */,
 				AFE03F311D1D51DA00F089FB /* ViewController.swift in Sources */,
 				AFE03F2F1D1D51DA00F089FB /* AppDelegate.swift in Sources */,
 			);

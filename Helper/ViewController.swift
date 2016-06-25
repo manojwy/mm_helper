@@ -9,7 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+
 	var locManager:LocationManager!
+	@IBOutlet weak var statusLabel: UILabel!
+
 	override func viewDidLoad() {
 
 		super.viewDidLoad()
@@ -17,7 +20,7 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
 		self.navigationItem.title = NSBundle.mainBundle().infoDictionary!["CFBundleName"] as? String
 
-		self.locManager = LocationManager()
+		self.locManager = LocationManager(label: statusLabel)
 	}
 
 	override func didReceiveMemoryWarning() {

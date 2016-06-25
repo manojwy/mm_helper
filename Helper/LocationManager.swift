@@ -13,16 +13,20 @@ import UIKit
 class LocationManager:NSObject, CLLocationManagerDelegate {
 
 	var manager:CLLocationManager!
-	var testTimer: NSTimer!
+//	var testTimer: NSTimer!
+	var lastUpdateTimestamp:NSTimeInterval?
+	var statusLabel:UILabel?
 
-	override init () {
+	init (label:UILabel) {
 		P("LocationManager: init")
 
 		super.init()
 
 		manager = CLLocationManager()
 		manager.delegate = self;
-		manager.desiredAccuracy = kCLLocationAccuracyBest
+		manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+		manager.distanceFilter = 5.0
+		manager.allowsBackgroundLocationUpdates = true
 
 		if CLLocationManager.locationServicesEnabled() {
 			manager.startUpdatingLocation()
@@ -32,11 +36,13 @@ class LocationManager:NSObject, CLLocationManagerDelegate {
 			manager.requestAlwaysAuthorization()
 		}
 
-		self.testTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+		self.statusLabel = label
+
+//		self.testTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
 	}
 
 	deinit {
-		testTimer.invalidate()
+//		testTimer.invalidate()
 		P("LocationManager:deinit")
 	}
 
@@ -47,11 +53,49 @@ class LocationManager:NSObject, CLLocationManagerDelegate {
 		}
 	}
 
+//	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//		P("LocationManager:didUpdateToLocation")
+//
+//		if self.lastUpdateTimestamp == nil || self.lastUpdateTimestamp < NSDate().timeIntervalSince1970 - 10 {
+//			self.sendNotification("LocationManager:didUpdateToLocation")
+//			self.lastUpdateTimestamp = NSDate().timeIntervalSince1970
+//		}
+//
+//	}
+
 
 	func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
 		P("LocationManager:didUpdateToLocation - \(newLocation.description)")
 
-		self.sendNotification("LocationManager:didUpdateToLocation - \(newLocation.description)")
+		if self.lastUpdateTimestamp == nil || self.lastUpdateTimestamp < NSDate().timeIntervalSince1970 - 10 {
+//			self.sendNotification("LocationManager:didUpdateToLocation - \(newLocation.description)")
+			self.lastUpdateTimestamp = NSDate().timeIntervalSince1970
+
+			self.statusLabel?.text = "\(NSDate().descriptionWithLocale(NSLocale.currentLocale()))\n LocationManager:didUpdateToLocation:\n \(newLocation.description)"
+
+			//check reachability and see if it is in wifi. if in wifi, check the wifi name.
+
+			let reachability: Reachability
+			do {
+				reachability = try Reachability.reachabilityForInternetConnection()
+				if reachability.currentReachabilityStatus == .ReachableViaWiFi {
+//					self.statusLabel?.text = "\(NSDate().descriptionWithLocale(NSLocale.currentLocale()))\n LocationManager:didUpdateToLocation:\n\(newLocation.description)\nWifi available"
+
+					let wifiManager = WifiManager()
+					let names = wifiManager.getNames()
+
+					for name in names {
+						if name.lowercaseString == "mig2" {
+							self.statusLabel?.text = "\(NSDate().descriptionWithLocale(NSLocale.currentLocale()))\nin MiG2"
+							return
+						}
+					}
+				}
+				self.statusLabel?.text = "\(NSDate().descriptionWithLocale(NSLocale.currentLocale()))\nout of MiG2"
+			} catch let err as NSError {
+				self.statusLabel?.text = "\(NSDate().descriptionWithLocale(NSLocale.currentLocale()))\nUnable to create Reachability - \n\(err)"
+			}
+		}
 	}
 
 	func sendNotification(message:String) {
