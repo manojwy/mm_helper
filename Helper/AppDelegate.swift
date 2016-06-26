@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				forTypes: [.Alert, .Badge, .Sound],
 				categories:nil))
 
+		application.setMinimumBackgroundFetchInterval(600) // every 10 minutes
+
 		return true
 	}
 
@@ -110,6 +112,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	            abort()
 	        }
 	    }
+	}
+
+	func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+		let mainController = self.window!.rootViewController as! ViewController
+		mainController.update()
+		completionHandler(.NewData);
 	}
 }
 
